@@ -45,7 +45,9 @@ prepare:
 	@ git -C $(BOARD_SUPPORT) checkout $(BOARD_SUPPORT_GITSTATE)
 
 	@ if [[ ! -d $(ARMBIAN) ]]; then \
-		echo "# Downloading Armbian build framework..." && git clone https://github.com/armbian/build.git $(ARMBIAN) ; \
+		echo "# Downloading Armbian build framework..." \
+		&& git clone https://github.com/armbian/build.git $(ARMBIAN) \
+		&& git -C $(ARMBIAN) checkout $(ARMBIAN_GITSTATE) ; \
 	else \
 		git -C $(ARMBIAN) remote update --prune ; \
 		git -C $(ARMBIAN) clean -fxd patch config userpatches ; \
