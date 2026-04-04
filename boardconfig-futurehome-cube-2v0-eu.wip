@@ -1,0 +1,26 @@
+# Rockchip RK3328 quad core, 2GB RAM, 1xFE, 1xUSB3, 1xUSB2-OTG, 8GB eMMC
+BOARD_NAME="Futurehome cube-2v0-eu"
+BOARDFAMILY="rockchip64"
+KERNEL_TARGET="current,edge"
+KERNEL_TEST_TARGET="current"
+HAS_VIDEO_OUTPUT="no"
+IMAGE_PARTITION_TABLE="gpt"
+BOOTCONFIG="futurehome-cube-2v0-eu_defconfig"
+BOOT_FDT_FILE="rockchip/rk3328-futurehome-cube-2v0-eu.dtb"
+DEFAULT_CONSOLE="serial"
+MODULES_BLACKLIST="rtc_rk808"
+SERIALCON="ttyS2:1500000,ttyGS0"
+MODULES="g_serial"
+BOOTBRANCH_BOARD="tag:v2026.01"
+BOOTPATCHDIR="v2026.01"
+BOOT_SOC="rk3328"
+GOVERNOR="conservative"
+BOOT_SCENARIO="binman-atf-mainline"
+DDR_BLOB="rk33/rk3328_ddr_933MHz_v1.16.bin"
+OVERLAY_PREFIX="rockchip-futurehome-cube-2v0-eu"
+
+function post_family_config__futurehome_cube2v0eu() {
+	# Redefine which u-boot script file to include in the build output
+	declare -g BOOTSCRIPT="boot-futurehome-cube-2v0-eu.cmd:boot.cmd"
+}
+

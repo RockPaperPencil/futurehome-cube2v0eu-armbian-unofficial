@@ -1,0 +1,6 @@
+*
+!.gitignore
+!README.md
+!Makefile
+!boardconfig-futurehome-cube-2v0-eu.wip
+!customize-image.sh
