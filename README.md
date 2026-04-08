@@ -9,3 +9,5 @@ The essence of this repository is basically a Makefile which pulls down and amen
 ## Building
 Just running **make** starts a build of the Armbian main branch with the *current*
 kernel. Check out the Makefile for all the details!
+
+Built images appears in the folder armbian-build/output/images.
